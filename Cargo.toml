@@ -12,11 +12,18 @@ release = false
 wasm-opt = false
 
 [lib]
-crate-type = ["cdylib"]
+name = "gliner_rust_worker"
+crate-type = ["cdylib", "rlib"]
 
 [dependencies]
-worker = { version="0.5.0", features=['http', 'axum'] }
+worker = { version = "0.5.0", features = ["http", "axum"] }
 worker-macros = { version="0.5.0", features=['http'] }
-axum  = { version = "0.7", default-features = false }
+axum  = { version = "0.7", default-features = false, features = ["json"] }
 tower-service = "0.3.2"
 console_error_panic_hook = { version = "0.1.1" }
+regex = "1.11.1"
+sha2 = "0.10.9"
+once_cell = "1.21.3"
+serde = { version = "1.0", features = ["derive"] }
+hex = "0.4.3"
+thiserror = "1.0.50"
